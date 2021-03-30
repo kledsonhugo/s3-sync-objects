@@ -25,30 +25,15 @@ O primeiro passo é criar o Bucket S3.
 
      > Mantenha as demais opções padrões. 
 
-5. Clique sobre o nome do Bucket.
-
-6. No menu **Propriedades** navegue até **Hospedagem de Site estático**, clique em **Editar** e preencha as informações abaixo.
-
-   - Hospedagem de site estático: `Ativar`
-   - Documento de índice: `index.html`
-   - Documento de erro opcional: `error.html`
-
-7. No menu **Propriedades** verifique a opção **Endpoint de site de bucket** e guarde a url conforme exemplo abaixo.
-
-   - url: `http://<S3_NOME_DO_BUCKET>.s3-website-<REGIÃO_AWS>.amazonaws.com`
-
-     > Guarde esta informação pois precisará a frente.
-
 ## Passo 2
 
-Obtenha credenciais de acesso à conta AWS para permitir que o repositório GitHub gerencie os objetos do bucket S3.
+Configure credenciais de acesso da conta AWS que será utilizada para sincronizar o repo GitHub com o bucket S3.
 
 1. Acesse a página [https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials$access_key](https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials$access_key).
 
-2. Crie uma chave de acesso e capture os valores das variáveis **ID da chave de acesso (AWS_ACCESS_KEY_ID)** e **Chave de acesso secreta (AWS_SECRET_ACCESS_KEY)**.
+2. Crie uma chave de acesso e capture os valores **ID da chave de acesso (AWS_ACCESS_KEY_ID)** e **Chave de acesso secreta (AWS_SECRET_ACCESS_KEY)**.
 
-   > Guarde estas informações pois também serão necessárias.
-   > Para sua proteção, você nunca deve compartilhar suas chaves secretas com ninguém. Como prática recomendada, recomendamos alternância frequente de chaves.
+   > Estas informações serão necessárias mais adiante.
 
 ## Passo 3
 
@@ -56,7 +41,7 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
 
 1. Acesse o GitHub [https://github.com/](https://github.com/).
 
-2. Crie o repositório GitHub e acesse o menu **Settings**.
+2. Selcione ou crie um repositório GitHub e acesse o menu **Settings**.
 
    > Referência [https://docs.github.com/pt/github/getting-started-with-github/create-a-repo](https://docs.github.com/pt/github/getting-started-with-github/create-a-repo).
 
@@ -65,16 +50,16 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
    - **`AWS_ACCESS_KEY_ID`** : `access key capturada no passo 2`
    - **`AWS_SECRET_ACCESS_KEY`** : `secret access key capturada no passo 2`
 
-4. Publique arquivos no repositório que gostaria de sincronizar com o bucket S3.
+4. Publique arquivos no repositório GitHub que serão sincronizados com o bucket S3.
 
    > Caso tenha dúvidas para publicar conteúdo em repositório GitHub, consulte a doc oficial em [https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line](https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line).
 
 5. Publique no repositório GitHub o arquivo `.github/workflows/main.yml` com o conteúdo abaixo.
 
-   > Esse arquivo configura o Workflow do GitHub que fará o sincronismo com o bucket S3.
+   > Esse arquivo configura o Workflow de sincronismo do repositório GitHub com o bucket S3.
 
    ```
-   name: Sync objects to S3 bucket
+   name: Sync GitHub to S3
 
    on:
      push:
@@ -86,10 +71,10 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
        runs-on: ubuntu-latest
        steps:
 
-       - name: Checkout
+       - name: Checkout repo
          uses: actions/checkout@v1
 
-       - name: Configure Credentials
+       - name: Set Credentials
          uses: aws-actions/configure-aws-credentials@v1
          with:
            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
