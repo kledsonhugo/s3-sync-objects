@@ -97,3 +97,13 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
 7. No repositório GitHub acesse a opção **Actions** e verifique o status da execução do Workflow.
 
    > Nesse ponto é esperado que o Workflow execute com sucesso e sincronize os arquivos do repositório GitHub com o Bucket S3.
+
+## Passo 4
+
+Verifique no Bucket S3 se os objetos foram atualizados.
+
+1. Faça login no AWS Console.
+
+2. Em **Serviços** selecione **S3**.
+
+3. Verifique a data e hora dos objetos no bucket.
