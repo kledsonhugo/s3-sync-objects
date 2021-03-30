@@ -69,7 +69,7 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
 
    > Caso tenha dúvidas para publicar conteúdo em repositório GitHub, consulte a doc oficial em [https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line](https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line).
 
-5. Publique no repositório GitHub o arquivo `.github/workflows/main.yml`.
+5. Publique no repositório GitHub o arquivo `.github/workflows/main.yml` com o conteúdo abaixo.
 
    > Esse arquivo configura o Workflow do GitHub que fará o sincronismo com o bucket S3.
 
