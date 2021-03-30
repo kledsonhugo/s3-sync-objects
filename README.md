@@ -66,7 +66,7 @@ O terceiro passo é configurar um repositório GitHub e configurá-lo para reali
    - **`AWS_SECRET_ACCESS_KEY`** : `secret access key capturada no passo 2`
 
 5. 
-![Workflow Dir](/images/workflow-dir.png)
+![Workflow Dir](/images/workflow-dir.png){:height="700px" width="400px"}
 
 
 6. Publique conteúdos no repositório GitHub.
