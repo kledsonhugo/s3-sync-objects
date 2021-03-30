@@ -58,6 +58,8 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
 
    > Esse arquivo configura o Workflow de sincronismo do repositório GitHub com o bucket S3.
 
+   > Substitua as variáveis `<REGIÃO_AWS>` e `NOME_DO_BUCKET` pelos valores capturados nos passos anteriores.
+
    ```
    name: Sync GitHub to S3
 
@@ -91,8 +93,6 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
            --follow-symlinks \
            --delete
    ```
-   
-   > Substitua as variáveis `<REGIÃO_AWS>` e `NOME_DO_BUCKET` pelos valores capturados nos passos anteriores.
 
 7. No repositório GitHub acesse a opção **Actions** e verifique o status da execução do Workflow.
 
