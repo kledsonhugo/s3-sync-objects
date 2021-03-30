@@ -88,7 +88,7 @@ O terceiro passo é configurar um repositório GitHub e configurá-lo para reali
          with:
            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-           aws-region: <REGIÃO_AWS>
+           aws-region: **<REGIÃO_AWS>**
 
        - name: Deploy objects to S3 bucket
          run: |
@@ -104,3 +104,9 @@ O terceiro passo é configurar um repositório GitHub e configurá-lo para reali
    > Substitua as variáveis `<REGIÃO_AWS>` e `NOME_DO_BUCKET` pelos valores capturados nos passos anteriores.
 
    > Caso tenha dúvidas para publicar conteúdo em um repositório GitHub consulte a doc oficial em [https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line](https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line).
+
+6. Publique arquivos no repositório.
+
+7. Dentro do repositório acesse a opção **Actions** e verifique o status da execução do Workflow.
+
+   > Esperado que o Workflow tenha executado com sucesso e sincronizado arquivos com o Bucket S3.
