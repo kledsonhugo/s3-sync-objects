@@ -98,7 +98,7 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
 
    > Nesse ponto é esperado que o Workflow execute com sucesso e sincronize os arquivos do repositório GitHub com o Bucket S3.
 
-   ![Workflow Actions](/images/workflow-actions.png)   
+   ![Workflow Actions](/images/workflow-actions.PNG)   
 
 ## Passo 4
 
