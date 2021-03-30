@@ -28,4 +28,5 @@ jobs:
         --exclude 'README.md' \
         --acl public-read \
         --follow-symlinks \
-        --delete
+        --delete \
+        --exact-timestamps
