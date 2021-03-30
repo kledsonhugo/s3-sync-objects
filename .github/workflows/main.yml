@@ -22,7 +22,7 @@ jobs:
 
     - name: Deploy objects to S3 bucket
       run: |
-        aws s3 sync ./ s3://fiap-cloud-vds-aws-s3 \
+        aws s3 sync ./ s3://s3-sync-objects \
         --exclude '.git/*' \
         --exclude '.github/*' \
         --exclude 'README.md' \
