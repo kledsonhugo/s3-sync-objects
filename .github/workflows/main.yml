@@ -1,9 +1,14 @@
-name: Upload Website
+name: Upload objects into S3 Bucket
 
 on:
   push:
     branches:
     - master
+    paths-ignore:
+    - '.git/**'
+    - '.github/**'
+    - README.md
+
 
 jobs:
   deploy:
