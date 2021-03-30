@@ -1,4 +1,4 @@
-name: Upload objects into S3 Bucket
+name: Sync objects to S3 bucket
 
 on:
   push:
@@ -9,17 +9,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Configure AWS Credentials
+    - name: Configure Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Deploy static site to S3 bucket
-      with:
-        args: --exclude '.git/*' --exclude '.github/*' --exclude 'README.md' --acl public-read --follow-symlinks --delete
-      run: aws s3 sync ./ s3://fiap-cloud-vds-aws-s3
+    - name: Deploy objects to S3 bucket
+      run: |
+        aws s3 sync ./ s3://fiap-cloud-vds-aws-s3 \
+        --exclude '.git/*' \
+        --exclude '.github/*' \
+        --exclude 'README.md' \
+        --acl public-read \
+        --follow-symlinks \
+        --delete
