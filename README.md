@@ -1,4 +1,4 @@
-# Sync de arquivos GitHub com objetos em um Bucket S3 #
+# Sync de arquivos GitHub com objetos em Bucket S3 #
 
 Demonstrar como realizar sincronismo de arquivos em um repo GitHub com objetos em um bucket S3.
 
@@ -35,6 +35,6 @@ O primeiro passo é criar o Bucket S3.
 
 7. No menu **Propriedades** verifique a opção **Endpoint de site de bucket** e guarde a url conforme exemplo abaixo.
 
-   - url: `http://fiap-cloud-vds-aws-s3-<SEU_NOME>.s3-website-us-east-1.amazonaws.com`
+   - url: `http://<S3_NOME_DO_BUCKET>.s3-website-<REGIÃO_AWS>.amazonaws.com`
 
      > Guarde esta informação pois precisará a frente.
