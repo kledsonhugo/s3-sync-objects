@@ -38,3 +38,22 @@ O primeiro passo é criar o Bucket S3.
    - url: `http://<S3_NOME_DO_BUCKET>.s3-website-<REGIÃO_AWS>.amazonaws.com`
 
      > Guarde esta informação pois precisará a frente.
+
+## Passo 2
+
+Obtenha credenciais de acesso à conta AWS para permitir que o repositório GitHub gerencie os objetos do bucket S3.
+
+1. Acesse a página [https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials$access_key](https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials$access_key).
+
+2. Crie uma chave de acesso e capture os valores das variáveis **ID da chave de acesso (AWS_ACCESS_KEY_ID)** e **Chave de acesso secreta (AWS_SECRET_ACCESS_KEY)**.
+
+   > Guarde estas informações pois também serão necessárias.
+   > Para sua proteção, você nunca deve compartilhar suas chaves secretas com ninguém. Como prática recomendada, recomendamos alternância frequente de chaves.
+
+## Passo 3
+
+O terceiro passo é configurar um repositório GitHub e configurá-lo para realizar o sincronismo de arquivos com o bucket S3.
+
+1. Acesse o GitHub [https://github.com/](https://github.com/).
+
+2. Crie um repositório conforme doc [https://docs.github.com/pt/github/getting-started-with-github/create-a-repo](https://docs.github.com/pt/github/getting-started-with-github/create-a-repo).
