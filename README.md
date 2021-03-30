@@ -1,6 +1,6 @@
-# Sync de arquivos GitHub com objetos em Bucket S3 #
+# Sync com Bucket S3 #
 
-Demonstrar como realizar sincronismo de arquivos em um repo GitHub com objetos em um bucket S3.
+Demonstrar como realizar sincronismo de arquivos em um repo GitHub com objetos em um Bucket S3.
 
 > Referências
 - [https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html)
@@ -66,8 +66,9 @@ O terceiro passo é configurar um repositório GitHub e configurá-lo para reali
    - **`AWS_SECRET_ACCESS_KEY`** : `secret access key capturada no passo 2`
 
 5. 
+![GitHub Logo](/images/workflow-dir.png)
+Format: ![Alt Text](url)
 
 6. Publique conteúdos no repositório GitHub.
 
    > Caso tenha dúvidas para publicar conteúdo em um repositório GitHub consulte a doc oficial em [https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line](https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line).
-   > 
