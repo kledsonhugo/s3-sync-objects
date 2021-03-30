@@ -57,3 +57,17 @@ O terceiro passo é configurar um repositório GitHub e configurá-lo para reali
 1. Acesse o GitHub [https://github.com/](https://github.com/).
 
 2. Crie um repositório conforme doc [https://docs.github.com/pt/github/getting-started-with-github/create-a-repo](https://docs.github.com/pt/github/getting-started-with-github/create-a-repo).
+
+3. Dentro do repositório acesse a opção **Settings**.
+
+4. No menu **Secrets** clique em **New repository secret** e adicione as variáveis abaixo.
+
+   - **`AWS_ACCESS_KEY_ID`** : `access key capturada no passo 2`
+   - **`AWS_SECRET_ACCESS_KEY`** : `secret access key capturada no passo 2`
+
+5. 
+
+6. Publique conteúdos no repositório GitHub.
+
+   > Caso tenha dúvidas para publicar conteúdo em um repositório GitHub consulte a doc oficial em [https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line](https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line).
+   > 
