@@ -65,10 +65,42 @@ O terceiro passo é configurar um repositório GitHub e configurá-lo para reali
    - **`AWS_ACCESS_KEY_ID`** : `access key capturada no passo 2`
    - **`AWS_SECRET_ACCESS_KEY`** : `secret access key capturada no passo 2`
 
-5. 
-![Workflow Dir](/images/workflow-dir.png&s=200)
+5. Publique no repositório o arquivo `.github/workflows/main.yml` com o conteúdo abaixo.
 
+   ```
+   name: Sync objects to S3 bucket
 
-6. Publique conteúdos no repositório GitHub.
+   on:
+     push:
+       branches:
+       - master
+
+   jobs:
+     deploy:
+       runs-on: ubuntu-latest
+       steps:
+
+       - name: Checkout
+         uses: actions/checkout@v1
+
+       - name: Configure Credentials
+         uses: aws-actions/configure-aws-credentials@v1
+         with:
+           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+           aws-region: <REGIÃO_AWS>
+
+       - name: Deploy objects to S3 bucket
+         run: |
+           aws s3 sync ./ s3://<NOME_DO_BUCKET> \
+           --exclude '.git/*' \
+           --exclude '.github/*' \
+           --exclude 'README.md' \
+           --acl public-read \
+           --follow-symlinks \
+           --delete
+   ```
+   
+   > Substitua as variáveis `<REGIÃO_AWS>` e `NOME_DO_BUCKET` pelos valores capturados nos passos anteriores.
 
    > Caso tenha dúvidas para publicar conteúdo em um repositório GitHub consulte a doc oficial em [https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line](https://docs.github.com/pt/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line).
