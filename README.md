@@ -1,6 +1,6 @@
 # Sync de arquivos GitHub com objetos em um Bucket S3 #
 
-O objetivo é demonstrar como realizar o sincronismo de arquivos mantidos em um repositório GitHub com objetos de um bucket AWS Simple Storage Service (S3).
+Demonstrar como realizar sincronismo de arquivos em um repo GitHub com objetos em um bucket S3.
 
 > Referências
 - [https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html)
@@ -8,7 +8,7 @@ O objetivo é demonstrar como realizar o sincronismo de arquivos mantidos em um 
 #
 ## Passo 1
 
-O primeiro passo é criar um Bucket S3.
+O primeiro passo é criar o Bucket S3.
 
 1. Faça login no AWS Console.
 
