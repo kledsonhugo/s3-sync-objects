@@ -18,8 +18,8 @@ O primeiro passo é criar o Bucket S3.
 
 4. Na tela de criação de bucket preencha as informações abaixo.
 
-   - Nome do Bucket: **`<S3_NOME_DO_BUCKET>`**
-   - Região da AWS: `selecionar conforme preferência`
+   - Nome do Bucket: `{NOME_DO_BUCKET}`
+   - Região da AWS: `selecionar conforme preferência {REGIÃO_AWS}`
    - Bloquear todo o acesso público: `desmarcar`
    - Reconheço que as configurações atuais podem fazer com que este bucket e os objetos dentro dele se tornem públicos: `marcar`
 
@@ -31,7 +31,7 @@ Configure credenciais de acesso da conta AWS que será utilizada para sincroniza
 
 1. Acesse a página [https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials$access_key](https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials$access_key).
 
-2. Crie uma chave de acesso e capture os valores **ID da chave de acesso (AWS_ACCESS_KEY_ID)** e **Chave de acesso secreta (AWS_SECRET_ACCESS_KEY)**.
+2. Crie uma chave de acesso e capture os valores **ID da chave de acesso {AWS_ACCESS_KEY_ID}** e **Chave de acesso secreta {AWS_SECRET_ACCESS_KEY}**.
 
    > Estas informações serão necessárias mais adiante.
 
@@ -47,8 +47,8 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
 
 3. Em **Secrets** clique em **New repository secret** e adicione as variáveis abaixo.
 
-   - **`AWS_ACCESS_KEY_ID`** : `access key capturada no passo 2`
-   - **`AWS_SECRET_ACCESS_KEY`** : `secret access key capturada no passo 2`
+   - **`AWS_ACCESS_KEY_ID`** : `{AWS_ACCESS_KEY_ID}`
+   - **`AWS_SECRET_ACCESS_KEY`** : `{AWS_SECRET_ACCESS_KEY}`
 
 4. Publique arquivos no repositório GitHub que serão sincronizados com o bucket S3.
 
@@ -58,7 +58,7 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
 
    > Esse arquivo configura o Workflow de sincronismo do repositório GitHub com o bucket S3.
 
-   > Substitua as variáveis `<REGIÃO_AWS>` e `NOME_DO_BUCKET` pelos valores capturados nos passos anteriores.
+   > Substitua as variáveis `{REGIÃO_AWS}` e `{NOME_DO_BUCKET}` pelos valores capturados nos passos anteriores.
 
    ```
    name: Sync GitHub to S3
@@ -81,11 +81,11 @@ O terceiro passo é configurar o repositório GitHub e configurá-lo para sincro
          with:
            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-           aws-region: **<REGIÃO_AWS>**
+           aws-region: **{REGIÃO_AWS}**
 
        - name: Deploy objects to S3 bucket
          run: |
-           aws s3 sync ./ s3://<NOME_DO_BUCKET> \
+           aws s3 sync ./ s3://{NOME_DO_BUCKET} \
            --exclude '.git/*' \
            --exclude '.github/*' \
            --exclude 'README.md' \
