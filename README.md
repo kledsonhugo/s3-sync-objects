@@ -21,7 +21,7 @@ O primeiro passo é criar o Bucket S3.
    - Nome do Bucket: `{NOME_DO_BUCKET}`
    - Região da AWS: `selecionar conforme preferência {REGIÃO_AWS}`
    - Bloquear todo o acesso público: `desmarcar`
-   - Reconheço que as configurações atuais podem fazer com que este bucket e os objetos dentro dele se tornem públicos: `marcar`
+   - `Reconheço que as configurações atuais podem fazer com que este bucket e os objetos dentro dele se tornem públicos`: `marcar`
 
      > Mantenha as demais opções padrões. 
 
